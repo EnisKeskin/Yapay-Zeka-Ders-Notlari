@@ -147,11 +147,11 @@ Yapay sinir ağlar (YSA) insan beyninden esinlenmiştir.
 
 Alıcı sinirler (receptor) organizma içerisinden ya da dış ortamlardan aldıkları uyarıları, beyine bilgi ileten elektiriksel sinyallere dönüştürür.
 
-![](BiyolojikSinirSistemi.png)
+![](image/BiyolojikSinirSistemi.png)
 
 ### Biyolojik Sinir Hücresi
 
-![](MerkesiSinirAg.png)
+![](image/MerkesiSinirAg.png)
 
 **Dendritler**, sinaptik sinyalleri girdi olarak almakta\
 **Hücre gövdesi**, bu sinyali analog bir yöntemle işlemekte\
@@ -167,7 +167,7 @@ Alıcı sinirler (receptor) organizma içerisinden ya da dış ortamlardan aldı
 ### Yapay Hücre MOdelleri
 
 Temel bir yapay sinir ağı hücresi biyolojik olarak
-<img src="YapayHucreModeli.png" width="500px" heigth="auto" >
+<img src="image/YapayHucreModeli.png" width="500px" heigth="auto" >
 
 - Girişler
 - Ağırlıklar
