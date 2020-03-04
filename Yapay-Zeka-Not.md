@@ -33,52 +33,49 @@
 
 1. **Problemin Tanımı**
 
-Problemin tanımı problemimizle tamamen uyumlu olmalı.
+- Problemin tanımı problemimizle tamamen uyumlu olmalı.
 
 2. **Problemin Analizi**
 
-	-Bağımlı(varsa) değişken 	| *Veri türleri 
-	-Bağımsız değişken	  	| *Alabileceği (değerler/etiketler) sınır etiketleri
+-	Bağımlı(varsa) değişken 
+- Veri türleri 
+-	Bağımsız değişken	  	
+- Alabileceği (değerler/etiketler) sınır etiketleri
 
-3-Tasarım aşaması
+3. **Tasarım aşaması**
 
-	-Algoritma seçimi
-	-Veri Hazırlama (Veri madenciliğinde tanımlı yöntemlerin tatbik edilmesi)
-	-Problemin Yapay Zeka algoritmasının geliştirilmesi
+-	Algoritma seçimi
+-	Veri Hazırlama (Veri madenciliğinde tanımlı yöntemlerin tatbik edilmesi)
+-	Problemin Yapay Zeka algoritmasının geliştirilmesi
 
-4-Deneysel Çalışma
+4. **Deneysel Çalışma**
 
-	-Deneysel çalışma koşullarının/ayarlarının belirlenmesi
-	-Test aşaması
-	-Doğrulama Aşaması
+-	Deneysel çalışma koşullarının/ayarlarının belirlenmesi
+-	Test aşaması
+-	Doğrulama Aşaması										
 
-BM ≡ < b1, b2, ... , bm >       |a1|a2|... |an|b1|b2|... |bm|   | a1, a2... an, b1, b2, ... , bm      |
+### Veri türleri
+Sürekli değerli sayısal veriler\
+Ayrık değerli sayısal veriler        | Algoritma seçiminde dikkate alınması gereken\
+Kategorili / Etiketli sınır verileri | hususlardan biri veri türleridir.\
+Alfa nümerik tipli(karmaşık) veriler | Bağımlı ve bağımsız değişkenlerin veri türlerinin incelenmesi.
 
-	Bağımlı değişken       1|   					  |	  |                               | -> probleme ait t- adet örnek gözlemden oluşan veri seti
+1. Bağımlı değişken yok -> Danışmansız öğrenme uygulanacak -> Kümeleme problemidir | Kümeleme algoritmaları kullanılmalı
+2. Bağımı değişken veritürü Sayısal 
+	- Tahmin problemi 
+	- Tahmin algoritmaları kullanılmalı 
+	- Algoritma seçimi için bağımsız değişkenlerin veri türlerini incele Etiketli, Kategorik Ayrık 
+	- Sınıflandırma problemi 
+	- Sınıflandırma algoritmaları kullanılması 
+	- Algoritma seçimi için bağımsız değişken veri türlerine bakılmalı.
+3. Karışık tipli veriler 
+	- Bunun için 2 a ve b(ya sayısala yada etiketli) durumuna uyarlama yapılır.
 
-AN ≡ < a1, a2, ... , an >    ... | 						  | ≡ |                               |
+### Tahmin (prediction) 
 
-	Bağımsız değişken 	   t|						  |   | at1,at2...atn, bt1,bt2,...,btm|
-																	
+Veriden öğrenen modellerde sistem çıkışının nicel lması durumunda kullanılan yöntemlerin ürettiği değerlerdir. (Danışmanlı öğrenme)
 
-Veri türleri--> Sürekli değerli sayısal veriler      |
-
-			--> Ayrık değerli sayısal veriler        | Algoritma seçiminde dikkate alınması gereken 	
-			--> Kategorili / Etiketli sınır verileri | hususlardan biri veri türleridir.
-			--> Alfa nümerik tipli(karmaşık) veriler |
-
-Bağımlı ve bağımsız değişkenlerin veri türlerinin incelenmesi.
-
-	1- Bağımlı değişken yok -> Danışmansız öğrenme uygulanacak -> Kümeleme problemidir | Kümeleme algoritmaları kullanılmalı
-	2- Bağımı değişken veritürü Sayısal -> Tahmin problemi | Tahmin algoritmaları kullanılmalı | Algoritma seçimi için bağımsız değişkenlerin veri türlerini incele
-					Etiketli/kategorik/ayrık -> Sınıflandırma problemi -> Sınıflandırma algoritmaları kullaılmalı -> Algoritma seçimi için bağımsız değişken veri türlerine bakılmalı.
-	3- Karışık tipli veriler -> Bunun için 2 a ve b(ya sayısala yada etiketli) durumuna uyarlama yapılır.
-
-### Tahmin(prediction) 
-
-Veriden öğrenen modellerde sistem çıkışının nicel lması durumunda kullanılan yöntemlerin ürettiği değerlerdir.-> Danışmanlı öğrenme
-
-### Sınıflandırma(classification)
+### Sınıflandırma (classification)
 
 Giriş verisine ait çıkışların ntel olduğu durumlarda kullanılan yöntemlerin her veri örneğinin hangi sınıfa ait olduğunu belirlenmesi
 
@@ -91,9 +88,9 @@ bilinmeyen bir sabitin belirlenmesi içinse kestirim (estimation) kavramlarında
 * Tahmin -> değişken
 * Kestirim -> parametre ait terimlerdir.
 
-Sınıflandırma örneği -> 1 tane Bağımlı değişken var oda hastanın durumu ama 2 etiket var sağlam ve hasta
-
-						-> 2 tane Bağımsız değişkenler X1 ve X2 dir.
+**Sınıflandırma örneğin cevabı**:
+1 tane Bağımlı değişken var oda hastanın durumu ama 2 etiket var sağlam ve hasta
+2 tane Bağımsız değişkenler X1 ve X2 dir.
 
 ### Öğrenme Kuralları
 
@@ -106,9 +103,9 @@ Veriden eğitim için öerilen her algoritma farklı bir öğrenme kuralı olsa 
 * Kohonen
 
 Danışmanlı veride girdi hatadır. Hatayı düzeltmeye çalışırız.
-Özellik Çıkartımı
 
-	Veriye ait olan birçok özellikten bazıları ilgili verinin kümesinin/sınıfının belirlemede önemli rol oynar.
+### Özellik Çıkartımı
+Veriye ait olan birçok özellikten bazıları ilgili verinin kümesinin/sınıfının belirlemede önemli rol oynar.
 
 ### Veri Hazırlama
 
@@ -147,11 +144,11 @@ Yapay sinir ağlar (YSA) insan beyninden esinlenmiştir.
 
 Alıcı sinirler (receptor) organizma içerisinden ya da dış ortamlardan aldıkları uyarıları, beyine bilgi ileten elektiriksel sinyallere dönüştürür.
 
-![](BiyolojikSinirSistemi.png)
+![](./image/BiyolojikSinirSistemi.png)
 
 ### Biyolojik Sinir Hücresi
 
-![](MerkesiSinirAg.png)
+![](./image/MerkesiSinirAg.png)
 
 **Dendritler**, sinaptik sinyalleri girdi olarak almakta\
 **Hücre gövdesi**, bu sinyali analog bir yöntemle işlemekte\
@@ -164,10 +161,11 @@ Alıcı sinirler (receptor) organizma içerisinden ya da dış ortamlardan aldı
 * Bazısı bastırır.
 * Geri kalanı da değişikliğe yol açar.
 
-### Yapay Hücre MOdelleri
+### Yapay Hücre Modelleri
 
 Temel bir yapay sinir ağı hücresi biyolojik olarak
-<img src="YapayHucreModeli.png" width="500px" heigth="auto" >
+
+<img src="./image/YapayHucreModeli.png" width="500px" heigth="auto" />
 
 - Girişler
 - Ağırlıklar
@@ -177,7 +175,20 @@ Temel bir yapay sinir ağı hücresi biyolojik olarak
 
 **Girdiler**:
 Yapay sinir hücresine gelen girişler ağın öğrenmesi istenen örnekler tarafından belirlenir.
-**Ağırlıklar**: Ağırlıklar bir yapay hücreye gelen **bilginin önemini** ve **hücre üzerindeki etkisini** gösterir. **Her bir giriş kendine ait bir ağırlığa sahiptir**. Ağırlıklar **pozitif, negatif, sıfır, sabit veya değişken değerler** olabilir.
+
+**Ağırlıklar**: Ağırlıklar bir yapay hücreye gelen **bilginin önemini** ve **hücre üzerindeki etkisini** gösterir. **Her bir giriş kendine ait bir ağırlığa sahiptir**. Ağırlıklar **pozitif, negatif, sıfır, sabit veya değişken değerler** olabilir.Ağırlıklar **0 - 1 veya -1 - 1** arasında değişir. İlk ağırlıklar **rasgele** olarak yaratılır.
+
+**Toplama**: 
+
+**Aktivasyon (Etkinlik) Fonksiyonu**: Bu fonksiyon, hücreye gelen **net girdiyi işleyerek** hücrenin bu girdiye karşılık üreteceği çıktıyı belirler. Genellikle doğrusal olmayan bir fonksiyondur ve toplama fonksiyonunda olduğu gibi ağın hücre elemanlarının hepsi **aynı fonksiyonu kullanması gerekmez**. En çok kullanılan **sigmoid** fonksiyondur. **Türevini** kolay alınabilmesi **eğitim hızını** arttırır.
+
+- **Doğrusal fonksiyon**: Gelen girdiler olduğu gibi hücrenin çıkışı olarak kabul edilir.
+- **Step fonksiyon**: Gelen Net girdi değeri belirlenen bir eşik değerinin altında veya üstünde olmasına göre hücrenin çıkışı 1 veya 0 değerini alır.
+- **Doyumlu doğrusal fonksiyon**: Gelen bilgileri 0 veya 1' den büyük veya küçük olasına göre 0 ve 1 değerini alır. 0 ve 1 arasında ise Net girdi çıkışına gönderilir.
+- **Sinus fonksiyonu**: Öğrenilmesi düşünülen olayların sinüs fonksiyonuna uygun dağılım gösterdiği durumlarda kullanılır.
+- **Hiperbolik tanjant fonksiyon**: Gelen Net girdi değerini tanjant fonksiyonundan geçirilmesi ile hesaplanır.
+
+**Hücre Çıkışı**: Aktivasyon fonksiyonu tarafından belirlenen çıktı değeridir. Üretilen çıkış dış dünyaya veya bir başka hücreye giriş olarak gönderilir. Hücre kendi çıktısını kendisine girdi olarak da gönderebilir.
 
 #### Oluşturmak için
 1. N boyutlu giriş vektörleri
@@ -185,8 +196,12 @@ Yapay sinir hücresine gelen girişler ağın öğrenmesi istenen örnekler tara
 3. Toplama fonksiyonu bir method yapıcak giriş vektörleri ile ağırlıkları toplayacak
 4. Aktivasyon fonksiyonu gerçekleştirilecek
 
+### Perceptron
+
+### Yapay Sinir Ağlarının Yapısı
+Yapay sinir hücreleri bir araya gelerek\
+**Output layer**: Nöron katmanıdır.\
+**Bias**: Öğrenme sürecinde değeri değişebilir veya sabit kalırs.
 
 ### MLP Genel Yapay Zeka
-
-Çizgi olarak gösterilenlere ağırlık denir.Çizgiler 0 - 1 arasındadır.1'e çok yakınsa bağlantı ağırlığının çok güçlü olduğunu gösterir.0'a yakınsa o kadar ağırlıklıkları azdır ve en sonunda 0'a yakın olan işleminler veri settinden çıkartılır. Bağlantı ağırlıkların belirlenmeside algoritma problemidir.
-
+Çizgi olarak gösterilenlere ağırlık denir.Çizgiler 0 - 1 veya -1 - 1 arasındadır.1'e çok yakınsa bağlantı ağırlığının çok güçlü olduğunu gösterir. 0'a yakınsa o kadar ağırlıklıkları azdır ve en sonunda 0'a yakın olan işleminler veri settinden çıkartılır. Bağlantı ağırlıkların belirlenmeside algoritma problemidir.
