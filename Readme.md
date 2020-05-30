@@ -309,68 +309,123 @@ Yapay sinir hücreleri bir araya gelerek\
 - **Sistemin toplam hatası hesaplanır**
 
 ### Çok Katmanlı Ağın Öğrenme Kuralı
- 
- - En küçük karaler yöntemine dayalı "Delta öğrenme kuralının" genelleştirilmiş halidir.
- - Ağın öğrene bilmesi için eğitim setine ihtiyaç vardır. Set içerisinde her örnek için hem girdi hemde çıktılar belirlenmiştir.
- - **2 Aşamadan oluşur**
-    - İleri doğru hesaplama ( **Feed Forward** )
-    - Geri doğru hesaplama ( **Back Propogation** )
+
+- En küçük karaler yöntemine dayalı "Delta öğrenme kuralının" genelleştirilmiş halidir.
+- Ağın öğrene bilmesi için eğitim setine ihtiyaç vardır. Set içerisinde her örnek için hem girdi hemde çıktılar belirlenmiştir.
+- **2 Aşamadan oluşur**
+  - İleri doğru hesaplama ( **Feed Forward** )
+  - Geri doğru hesaplama ( **Back Propogation** )
 
 #### İleri Doğru Hesaplama
-  - Eğitim setindeki 1 örneğin Girdi Katmanından ağa gösterimesi ile başlar
-  - Gelen girdiler hiçbir değişiklik olamadan ara katman gönderilir.
-  - Girdi katmanı **G<sub>k</sub>**
-  - İşlem elemanının çıktısı **Ç<sub>k</sub><sup>i</sup>**
-  - Ç<sub>k</sub><sup>i</sup> = G<sub>k</sub>
+
+- Eğitim setindeki 1 örneğin Girdi Katmanından ağa gösterimesi ile başlar
+- Gelen girdiler hiçbir değişiklik olamadan ara katman gönderilir.
+- Girdi katmanı **G<sub>k</sub>**
+- İşlem elemanının çıktısı **Ç<sub>k</sub><sup>i</sup>**
+- Ç<sub>k</sub><sup>i</sup> = G<sub>k</sub>
 
   <img src="./image/ilerihesaplama.png" width="400px" heigth="auto" />
-  
+
   - Ara katmandaki her işlem elemanı girdi katmanındaki bütün işlem elemanlarından gelen bilgileri bağlantı ağırlıklarının (A<sub>1</sub>,A<sub>2</sub>,....) etkisi ile alır. Önce ara katmandaki işlem elemenlarına gelen net girdi **(Net<sub>j</sub><sup>a</sup>)** şu formül kullanılarak hesaplanır.
 
   <center><img src="./image/arakatmanformul.png" width="150px" heigth="auto" /></center>
-  
+
   - Burda A<sub>kj</sub> k. girdi elemanı j. ara katman elemanına bağlayan bağlantının ağırlık değerini göstermektedir. J. ara katman elemanının çıktısı ise bu net girdinin aktivasyon fonksiyonundan geçirilmesiyle hesaplanır
 
   <center><img src="./image/esikdegeri.png" width="400px" heigth="auto" /></center>
 
-  - Bir sigmoid fonksiyonun kullanılması halinde
-  
+- Bir sigmoid fonksiyonun kullanılması halinde
+
   <center><img src="./image/sigmoidkullanilmasiformul.png" width="200px" heigth="auto" /></center>
 
-  - Burada β<sub>j</sub> , ara katmanda bulunan j. elemana bağlanan eşik değer elemanının ağırlığını göstermektedir. Bu eşik değer ünitesinin çıktısı sabit olup 1’e eşittir. Eğitim sırasında ağ bu değeri kendisi belirlemektedir.
+- Burada β<sub>j</sub> , ara katmanda bulunan j. elemana bağlanan eşik değer elemanının ağırlığını göstermektedir. Bu eşik değer ünitesinin çıktısı sabit olup 1’e eşittir. Eğitim sırasında ağ bu değeri kendisi belirlemektedir.
 
   <center><img src="./image/sigmoidkullanilmasi.png" width="400px" heigth="auto" /></center>
 
- #### Geri Doğru Hesaplama
-  - Ağa sunulan girdi için ağın ürettiği çıktı ağın beklenen çıktıları ile karşılaştırılır. Bunların arasındaki fark hata olarak kabul edilir. Amaç bu hatanın düşürülmesidir.
-  - Bu hata, ağın ağırlık değerlerine dağıtılarak bir sonraki iterasyonda hatanın azaltılması sağlanır. Çıktı katmanındaki m. işlem elemanı için oluşan hata E<sub>m</sub> ;
+#### Geri Doğru Hesaplama
 
-  **<center>E<sub>m</sub> = B<sub>m</sub> - Ç<sub>m</sub></center>**
+- Ağa sunulan girdi için ağın ürettiği çıktı ağın beklenen çıktıları ile karşılaştırılır. Bunların arasındaki fark hata olarak kabul edilir. Amaç bu hatanın düşürülmesidir.
+- Bu hata, ağın ağırlık değerlerine dağıtılarak bir sonraki iterasyonda hatanın azaltılması sağlanır. Çıktı katmanındaki m. işlem elemanı için oluşan hata E<sub>m</sub> ;
 
-  - Yukarıdaki hata, bir işlem elemanı için oluşan hatadır. Çıktı katmanı için oluşan toplam hatayı (TH) bulmak için bütün hataların toplanması gerekir.
-  <center><img src="./image/toplamhata.png" width="120px" heigth="auto" /></center>
+**<center>E<sub>m</sub> = B<sub>m</sub> - Ç<sub>m</sub></center>**
 
-  - Ağın ağırlıklarını değiştirmek için **2** durum vardır.
-    - **Ara katman** ile **çıktı** katmanı arasındaki ağırlıkların değiştirilmesi
-    - **Ara katmanlar arası** veya **ara katman gird**i katmanı arasındaki ağırlıkların değiştirilmesi.
+- Yukarıdaki hata, bir işlem elemanı için oluşan hatadır. Çıktı katmanı için oluşan toplam hatayı (TH) bulmak için bütün hataların toplanması gerekir.
+<center><img src="./image/toplamhata.png" width="120px" heigth="auto" /></center>
+
+- Ağın ağırlıklarını değiştirmek için **2** durum vardır.
+  - **Ara katman** ile **çıktı** katmanı arasındaki ağırlıkların değiştirilmesi
+  - **Ara katmanlar arası** veya **ara katman gird**i katmanı arasındaki ağırlıkların değiştirilmesi.
 
 #### Ara Katman İle Çıktı Katmanı Arasındaki Ağırlıkların Değiştirilmesi
-  - Ara katmandaki j. işlem elemanı çıktı katmanındaki m. işlem elemanına bağlayan bağlantının ağırlığındaki değişim miktarı **ΔA<sup>a</sup>** denirse; herhangi bir t zamanında ağırlığın değişimi şöyle hesaplanır:
-  <center><img src="./image/arakatmanciktidegisim.png" width="250px" heigth="auto" /></center>
 
-  - Burda **λ** öğrenme katsayısı **α** momentum katsayısını göstermektedir.
-  - **δ<sub>m</sub>** ise m. çıktı ünitesinin hatasını göstermektedir.
-  - Momentum katsayısı ağın öğrenmesi esnasında yerel bir optimum noktaya takılıp kalmaması için ağırlık değişim değerinin belirli bir oranda bir sonraki değişime eklenmesini sağlar. j. işlem elemanı çıktı katmanındaki m. işlem elemanına bağlayan **bağlantının ağırlığındaki değişim miktarının hesabı**:
-  <center><img src="./image/arakatmanciktidegisim.png" width="250px" heigth="auto" /></center>
+- Ara katmandaki j. işlem elemanı çıktı katmanındaki m. işlem elemanına bağlayan bağlantının ağırlığındaki değişim miktarı **ΔA<sup>a</sup>** denirse; herhangi bir t zamanında ağırlığın değişimi şöyle hesaplanır:
+<center><img src="./image/arakatmanciktidegisim.png" width="250px" heigth="auto" /></center>
 
-  - Yine yukarıdaki formül dikkate alındığında δ m ise m. çıktı ünitesinin hatasını göstermektedir.
+- Burda **λ** öğrenme katsayısı **α** momentum katsayısını göstermektedir.
+- **δ<sub>m</sub>** ise m. çıktı ünitesinin hatasını göstermektedir.
+- Momentum katsayısı ağın öğrenmesi esnasında yerel bir optimum noktaya takılıp kalmaması için ağırlık değişim değerinin belirli bir oranda bir sonraki değişime eklenmesini sağlar. j. işlem elemanı çıktı katmanındaki m. işlem elemanına bağlayan **bağlantının ağırlığındaki değişim miktarının hesabı**:
+<center><img src="./image/arakatmanciktidegisim.png" width="250px" heigth="auto" /></center>
+
+- Yine yukarıdaki formül dikkate alındığında δ m ise m. çıktı ünitesinin hatasını göstermektedir.
 
   <center><img src="./image/mciktihatasi.png" width="140px" heigth="auto" /></center>
 
-  - f ’ (NET) aktivasyon fonksiyonunun türevidir. Sigmoid fonksiyonun kullanılması durumunda m. çıktı ünitesinin hatası:
+- f ’ (NET) aktivasyon fonksiyonunun türevidir. Sigmoid fonksiyonun kullanılması durumunda m. çıktı ünitesinin hatası:
 
   <center><img src="./image/mciktisihatasi2.png" width="140px" heigth="auto" /></center>
 
-  - Değişim miktarı hesaplandıktan sonra ağırlıkların t. iterasyondaki yeni değerleri (j. işlem elemanı ile m. işlem elemanını bağlayan bağlantının güncel değeri )
+- Değişim miktarı hesaplandıktan sonra ağırlıkların t. iterasyondaki yeni değerleri (j. işlem elemanı ile m. işlem elemanını bağlayan bağlantının güncel değeri )
 
   <center><img src="./image/tyenidegerler.png" width="250px" heigth="auto" /></center>
+
+## Optimizasyon
+
+### Optimizasyon Nedir?
+
+- Kazancı maksimum yapmaya çalışmaktır. (Geliri max veya Gider min yapmak için kullanılır.)
+- Optimizasyon, bir sistemde varolan kaynakların en verimli şekilde kullanılarak belirli amaçlara ulaşmayı sağlan bir süreç olarak tanımlanır
+- Optimizasyonda temel olarak 2 süreç vardır.
+  - Optimize edilecek büyüklük (max veya min) (**Hedef(Amaç) Fonksiyon**)
+    - İsteğe bağlı olarak Minimize veya Maksimum değer aranır.
+  - Optimum değeri bulmak için, aldıkları değerleri değiştirilen parametreler **Tasarım değişkenleri** olarak adlandırılır
+    - Sistemi tanımlayan değişken setidir.
+    - Herhangi bir değer atanabilir.
+    - Birbirinden bağımsız olmalıdır.
+    - Tasarım seçimi probleme uygun olmalıdır.
+  - Parametrelerin değer alması üzerine konulan sınırlamalara **Kısıtcılar** olarak adlandırılır.
+    - Tasarımı sınırlayan, tasarım değişkenlerinin alacağı değerlere limit koyan fonksiyonlardır.
+    - Eşitlik kısıtları
+    - Eşitsizlik kısıtları
+
+<center><img src="./image/optimizasyontanım.png" width="600px" heigth="auto" /></center>
+
+### Optimizasyon Türleri
+
+**Optimizasyon Problemlerinin Sınıflandırılması**
+
+- Pek çok optimizasyon algoritması bulunmaktadır.
+- Ancak pek çoğu belirli problemlerin cözümü için geliştirilmiştir.
+- Bu nedenle, optimizasyon problemlerinin cözümü için gerekli metodun seçimi için, optimizasyon probleminin türü belirlenmelidir.
+<center><img src="./image/optimizasyonturleri.png" width="600px" heigth="auto" /></center>
+
+**Özet**
+
+- Optimizasyon probemleri sınırlamalı, sınırlamasız, doğrusal, doğrusal olmayan, tamsayı, tamsayı olmayan, sürekli, ayrık ve quadratik optimizasyon problemleri olarak sınıflandırılır.
+- Optimizasyon problemlerinin karar değişkenlerine göre sınıflandırılması ile amaç ve sınırlama fonksiyonlarına göre sınıflandırılması.
+<center><img src="./image/optimizasyonsiniflandirilmasi.png" width="600px" heigth="auto" /></center>
+- Optimizasyon problemlerinin karar değişkenlerine göre sınıflandırılması
+<center><img src="./image/karargoresiniflandirilmasi.png" width="600px" heigth="auto" /></center>
+
+**Optimizasyon Süreci**
+
+- Temel konfigürasyonun oluşturulması
+- Tasarım değişkenlerinin tanımlanması
+- Hedef fonksiyonun kurulması
+- Kısıtlayıcı fonksiyonun tanımlanması
+- Uygun optimizasyon metodunun seçilmesi ve uygulanması
+
+**Optimizasyon Algoritmaları**
+
+- Farklı optimizasyon problem türleri için, farklı optimizasyon teknikleri kullanmak zorunda kalırız, çünkü Newton-Raphson yöntemi gibi bazı algoritmalar bazı optimizasyon türleri için diğerlerinden daha uygundur.
+
+### Genetik Algoritma
